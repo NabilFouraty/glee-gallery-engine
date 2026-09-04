@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 
 const navItems = [
   { to: "/", label: "Home" },
+  { to: "/chi-sono", label: "Chi sono" },
   { to: "/aree-di-intervento", label: "Aree di intervento" },
   { to: "/terapia-online", label: "Terapia online" },
   { to: "/formazione", label: "Formazione" },
