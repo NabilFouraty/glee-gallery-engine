@@ -359,8 +359,8 @@ function ChiSonoPage() {
       <Link className="w-full sm:w-auto inline-flex items-center justify-center gap-space-2 px-space-6 py-space-3 rounded-full bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md transition-all duration-200 shadow-[0_4px_12px_rgba(139,75,47,0.15)] hover:shadow-lg" to="/prenota">
       <span className="material-symbols-outlined text-[20px]">calendar_today</span>
       <span className="">Prenota un primo colloquio</span>
-      </a>
-      <a className="w-full sm:w-auto inline-flex items-center justify-center gap-space-2 px-space-6 py-space-3 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors duration-200" to="mailto:studio@silviacauzzi.it">
+      </Link>
+      <a className="w-full sm:w-auto inline-flex items-center justify-center gap-space-2 px-space-6 py-space-3 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors duration-200" href="mailto:studio@silviacauzzi.it">
       <span className="material-symbols-outlined text-[20px]">mail</span>
       <span className="">Scrivi per informazioni</span>
       </a>
