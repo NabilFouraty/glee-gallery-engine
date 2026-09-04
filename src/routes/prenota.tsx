@@ -149,7 +149,7 @@ function PrenotaPage() {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-4" id="service-selector">
       <label className="service-card cursor-pointer relative flex flex-col p-space-6 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all duration-200 shadow-sm" data-service="primo-colloquio">
-      <input checked="" className="peer sr-only" name="service" type="radio" defaultValue="Prima visita / Colloquio conoscitivo" />
+      <input defaultChecked className="peer sr-only" name="service" type="radio" defaultValue="Prima visita / Colloquio conoscitivo" />
       <div className="flex items-center justify-between mb-space-4">
       <span className="material-symbols-outlined text-[28px] text-tertiary">self_improvement</span>
       <span className="px-space-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed font-label-sm text-label-sm">60 min</span>

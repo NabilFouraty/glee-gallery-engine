@@ -214,8 +214,8 @@ function ContattiPage() {
                           Motivo del contatto <span className="text-primary">*</span>
       </label>
       <div className="relative">
-      <select className="w-full px-space-4 py-space-3 rounded-lg bg-surface text-on-surface font-body-md text-body-md appearance-none focus:outline-none focus:ring-2 focus:ring-primary/40 shadow-inner transition-all pr-10 cursor-pointer" id="subject" name="subject" required>
-      <option disabled="" selected="" value="">Seleziona un'opzione</option>
+      <select className="w-full px-space-4 py-space-3 rounded-lg bg-surface text-on-surface font-body-md text-body-md appearance-none focus:outline-none focus:ring-2 focus:ring-primary/40 shadow-inner transition-all pr-10 cursor-pointer" id="subject" name="subject" required defaultValue="">
+      <option disabled value="">Seleziona un'opzione</option>
       <option value="prima-visita">Prima visita conoscitiva</option>
       <option value="terapia-online">Terapia online</option>
       <option value="supervisione">Supervisione clinica</option>
