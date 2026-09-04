@@ -1,6 +1,78 @@
+import { useEffect } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+
+
+function useBookingInteractions() {
+  useEffect(() => {
+    let currentDay = "9 Ottobre";
+    let currentTime = "11:00";
+    const summaryService = document.getElementById("summary-service");
+    const summarySlot = document.getElementById("summary-slot");
+    const selectedDayDisplay = document.getElementById("selected-day-display");
+    const updateSummary = () => {
+      if (summarySlot) summarySlot.textContent = currentDay + " ore " + currentTime;
+    };
+    const cleanups: Array<() => void> = [];
+    const on = (el: Element, fn: () => void) => {
+      el.addEventListener("click", fn);
+      cleanups.push(() => el.removeEventListener("click", fn));
+    };
+
+    const serviceCards = Array.from(document.querySelectorAll(".service-card"));
+    serviceCards.forEach((card) => {
+      on(card, () => {
+        serviceCards.forEach((c) =>
+          c.querySelector(".service-indicator")?.classList.replace("opacity-100", "opacity-0"),
+        );
+        const radio = card.querySelector<HTMLInputElement>('input[type="radio"]');
+        if (!radio) return;
+        radio.checked = true;
+        card.querySelector(".service-indicator")?.classList.replace("opacity-0", "opacity-100");
+        if (summaryService) summaryService.textContent = radio.value;
+      });
+    });
+
+    const dayButtons = Array.from(document.querySelectorAll(".cal-day"));
+    dayButtons.forEach((btn) => {
+      on(btn, () => {
+        dayButtons.forEach((b) => {
+          b.classList.remove("bg-primary", "text-on-primary", "font-bold", "shadow-sm");
+          b.classList.add("text-on-surface");
+          const dot = b.querySelector("span");
+          dot?.classList.remove("bg-surface");
+          dot?.classList.add("bg-tertiary");
+        });
+        btn.classList.remove("text-on-surface");
+        btn.classList.add("bg-primary", "text-on-primary", "font-bold", "shadow-sm");
+        const dot = btn.querySelector("span");
+        dot?.classList.remove("bg-tertiary");
+        dot?.classList.add("bg-surface");
+        const parts = (btn.getAttribute("data-day") || "").split(" ");
+        currentDay = (parts[0] || "") + " " + (parts[1] || "Ottobre");
+        if (selectedDayDisplay) selectedDayDisplay.textContent = currentDay;
+        updateSummary();
+      });
+    });
+
+    const slotButtons = Array.from(document.querySelectorAll(".slot-btn"));
+    slotButtons.forEach((btn) => {
+      on(btn, () => {
+        slotButtons.forEach((b) => {
+          b.classList.remove("bg-primary", "text-on-primary", "font-bold", "shadow-md");
+          b.classList.add("bg-surface", "text-on-surface");
+        });
+        btn.classList.remove("bg-surface", "text-on-surface");
+        btn.classList.add("bg-primary", "text-on-primary", "font-bold", "shadow-md");
+        currentTime = btn.getAttribute("data-time") || "11:00";
+        updateSummary();
+      });
+    });
+
+    return () => cleanups.forEach((fn) => fn());
+  }, []);
+}
 
 export const Route = createFileRoute("/prenota")({
   head: () => ({
@@ -17,6 +89,8 @@ export const Route = createFileRoute("/prenota")({
 });
 
 function PrenotaPage() {
+  useBookingInteractions();
+
   return (
     <div className="min-h-screen bg-surface text-on-surface">
       <SiteHeader />
@@ -303,28 +377,37 @@ function PrenotaPage() {
       <p className="font-label-sm text-label-sm text-on-surface-variant">Riceverai un'email di riepilogo con tutte le istruzioni</p>
       </div>
       </div>
-      <form className="flex flex-col gap-space-4" id="booking-form" onsubmit="event.preventDefault(); submitBooking();">
+      <form className="flex flex-col gap-space-4" id="booking-form" onSubmit={(event) => {
+        event.preventDefault();
+        const form = document.getElementById("booking-form");
+        const success = document.getElementById("booking-success");
+        if (form && success) {
+          form.classList.add("hidden");
+          success.classList.remove("hidden");
+          success.classList.add("flex");
+        }
+      }}>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-space-3">
       <div className="flex flex-col gap-space-1">
       <label className="font-label-sm text-label-sm text-on-surface-variant" htmlFor="nome">Nome *</label>
-      <input className="px-space-3 py-space-2 rounded-lg bg-surface-container-low text-on-surface focus:bg-surface focus:outline-none focus:ring-2 focus:ring-primary transition-all font-body-md text-body-md" id="nome" placeholder="Es. Elena" required="" type="text" />
+      <input className="px-space-3 py-space-2 rounded-lg bg-surface-container-low text-on-surface focus:bg-surface focus:outline-none focus:ring-2 focus:ring-primary transition-all font-body-md text-body-md" id="nome" placeholder="Es. Elena" required type="text" />
       </div>
       <div className="flex flex-col gap-space-1">
       <label className="font-label-sm text-label-sm text-on-surface-variant" htmlFor="cognome">Cognome *</label>
-      <input className="px-space-3 py-space-2 rounded-lg bg-surface-container-low text-on-surface focus:bg-surface focus:outline-none focus:ring-2 focus:ring-primary transition-all font-body-md text-body-md" id="cognome" placeholder="Es. Rossi" required="" type="text" />
+      <input className="px-space-3 py-space-2 rounded-lg bg-surface-container-low text-on-surface focus:bg-surface focus:outline-none focus:ring-2 focus:ring-primary transition-all font-body-md text-body-md" id="cognome" placeholder="Es. Rossi" required type="text" />
       </div>
       </div>
       <div className="flex flex-col gap-space-1">
       <label className="font-label-sm text-label-sm text-on-surface-variant" htmlFor="email">Indirizzo Email *</label>
-      <input className="px-space-3 py-space-2 rounded-lg bg-surface-container-low text-on-surface focus:bg-surface focus:outline-none focus:ring-2 focus:ring-primary transition-all font-body-md text-body-md" id="email" placeholder="nome@esempio.it" required="" type="email" />
+      <input className="px-space-3 py-space-2 rounded-lg bg-surface-container-low text-on-surface focus:bg-surface focus:outline-none focus:ring-2 focus:ring-primary transition-all font-body-md text-body-md" id="email" placeholder="nome@esempio.it" required type="email" />
       </div>
       <div className="flex flex-col gap-space-1">
       <label className="font-label-sm text-label-sm text-on-surface-variant" htmlFor="telefono">Recapito Telefonico *</label>
-      <input className="px-space-3 py-space-2 rounded-lg bg-surface-container-low text-on-surface focus:bg-surface focus:outline-none focus:ring-2 focus:ring-primary transition-all font-body-md text-body-md" id="telefono" placeholder="+39 340 0000000" required="" type="tel" />
+      <input className="px-space-3 py-space-2 rounded-lg bg-surface-container-low text-on-surface focus:bg-surface focus:outline-none focus:ring-2 focus:ring-primary transition-all font-body-md text-body-md" id="telefono" placeholder="+39 340 0000000" required type="tel" />
       </div>
       <div className="flex flex-col gap-space-1">
       <label className="font-label-sm text-label-sm text-on-surface-variant" htmlFor="note">Note brevi o motivo della visita (opzionale)</label>
-      <textarea className="px-space-3 py-space-2 rounded-lg bg-surface-container-low text-on-surface focus:bg-surface focus:outline-none focus:ring-2 focus:ring-primary transition-all font-body-md text-body-md resize-none" id="note" placeholder="Se desideri, condividi brevemente cosa ti porta a richiedere questo incontro..." rows="3"></textarea>
+      <textarea className="px-space-3 py-space-2 rounded-lg bg-surface-container-low text-on-surface focus:bg-surface focus:outline-none focus:ring-2 focus:ring-primary transition-all font-body-md text-body-md resize-none" id="note" placeholder="Se desideri, condividi brevemente cosa ti porta a richiedere questo incontro..." rows={3}></textarea>
       </div>
       <div className="p-space-3 rounded-lg bg-surface-container-low flex flex-col gap-space-1">
       <span className="font-label-sm text-label-sm text-on-surface font-semibold">Riepilogo appuntamento selezionato:</span>
@@ -334,7 +417,7 @@ function PrenotaPage() {
       </div>
       </div>
       <label className="flex items-start gap-space-2 cursor-pointer pt-space-1">
-      <input className="mt-1 accent-primary rounded cursor-pointer" required="" type="checkbox" />
+      <input className="mt-1 accent-primary rounded cursor-pointer" required type="checkbox" />
       <span className="font-label-sm text-label-sm text-on-surface-variant">Ho letto e accetto il trattamento dei dati personali secondo la normativa sulla privacy e il codice deontologico degli psicologi.</span>
       </label>
       <button className="w-full mt-space-2 py-space-3 px-space-6 rounded-full bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md transition-all shadow-[0_4px_16px_rgba(139,75,47,0.25)] flex items-center justify-center gap-space-2" id="submit-btn" type="submit">
@@ -351,7 +434,7 @@ function PrenotaPage() {
       <p className="font-body-md text-body-md text-on-surface-variant text-sm">
                     Grazie per la fiducia. La Dott.ssa Silvia Cauzzi ha ricevuto la tua richiesta e ti contatterà via email o telefono entro 24 ore lavorative per confermare definitivamente l'orario.
                   </p>
-      <button className="mt-space-2 px-space-4 py-space-2 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" onclick="location.reload()" type="button">
+      <button className="mt-space-2 px-space-4 py-space-2 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" onClick={() => location.reload()} type="button">
                     Prenota un altro incontro
                   </button>
       </div>

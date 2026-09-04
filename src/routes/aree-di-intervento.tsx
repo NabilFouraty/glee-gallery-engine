@@ -2,6 +2,22 @@ import { createFileRoute } from "@tanstack/react-router";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 
+
+function toggleSymptomDetail(id: string) {
+  document.getElementById(id)?.classList.toggle("hidden");
+}
+
+function toggleFaq(id: string) {
+  const content = document.getElementById(id);
+  if (!content) return;
+  const icon = document.getElementById("icon-" + id);
+  const button = content.previousElementSibling;
+  const isClosed = content.classList.contains("hidden");
+  content.classList.toggle("hidden", !isClosed);
+  button?.setAttribute("aria-expanded", isClosed ? "true" : "false");
+  icon?.classList.toggle("rotate-180", isClosed);
+}
+
 export const Route = createFileRoute("/aree-di-intervento")({
   head: () => ({
     meta: [
@@ -105,7 +121,7 @@ function AreeDiInterventoPage() {
       {/* Interactive Symptom Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-6" id="symptoms-container">
       {/* Symptom Card 1 */}
-      <div className="p-space-6 rounded-xl bg-surface hover:bg-surface-bright shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group cursor-pointer" onclick="toggleSymptomDetail('sym-1')">
+      <div className="p-space-6 rounded-xl bg-surface hover:bg-surface-bright shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group cursor-pointer" onClick={() => toggleSymptomDetail("sym-1")}>
       <div className="flex flex-col gap-space-3">
       <div className="w-12 h-12 rounded-full bg-secondary-container/60 text-tertiary flex items-center justify-center group-hover:scale-105 transition-transform">
       <span className="material-symbols-outlined text-[24px]">psychology</span>
@@ -126,7 +142,7 @@ function AreeDiInterventoPage() {
       </div>
       </div>
       {/* Symptom Card 2 */}
-      <div className="p-space-6 rounded-xl bg-surface hover:bg-surface-bright shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group cursor-pointer" onclick="toggleSymptomDetail('sym-2')">
+      <div className="p-space-6 rounded-xl bg-surface hover:bg-surface-bright shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group cursor-pointer" onClick={() => toggleSymptomDetail("sym-2")}>
       <div className="flex flex-col gap-space-3">
       <div className="w-12 h-12 rounded-full bg-primary-fixed/60 text-primary flex items-center justify-center group-hover:scale-105 transition-transform">
       <span className="material-symbols-outlined text-[24px]">bolt</span>
@@ -147,7 +163,7 @@ function AreeDiInterventoPage() {
       </div>
       </div>
       {/* Symptom Card 3 */}
-      <div className="p-space-6 rounded-xl bg-surface hover:bg-surface-bright shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group cursor-pointer" onclick="toggleSymptomDetail('sym-3')">
+      <div className="p-space-6 rounded-xl bg-surface hover:bg-surface-bright shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group cursor-pointer" onClick={() => toggleSymptomDetail("sym-3")}>
       <div className="flex flex-col gap-space-3">
       <div className="w-12 h-12 rounded-full bg-secondary-container/60 text-secondary flex items-center justify-center group-hover:scale-105 transition-transform">
       <span className="material-symbols-outlined text-[24px]">diversity_3</span>
@@ -168,7 +184,7 @@ function AreeDiInterventoPage() {
       </div>
       </div>
       {/* Symptom Card 4 */}
-      <div className="p-space-6 rounded-xl bg-surface hover:bg-surface-bright shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group cursor-pointer" onclick="toggleSymptomDetail('sym-4')">
+      <div className="p-space-6 rounded-xl bg-surface hover:bg-surface-bright shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group cursor-pointer" onClick={() => toggleSymptomDetail("sym-4")}>
       <div className="flex flex-col gap-space-3">
       <div className="w-12 h-12 rounded-full bg-tertiary-fixed/60 text-tertiary flex items-center justify-center group-hover:scale-105 transition-transform">
       <span className="material-symbols-outlined text-[24px]">vital_signs</span>
@@ -189,7 +205,7 @@ function AreeDiInterventoPage() {
       </div>
       </div>
       {/* Symptom Card 5 */}
-      <div className="p-space-6 rounded-xl bg-surface hover:bg-surface-bright shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group cursor-pointer" onclick="toggleSymptomDetail('sym-5')">
+      <div className="p-space-6 rounded-xl bg-surface hover:bg-surface-bright shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group cursor-pointer" onClick={() => toggleSymptomDetail("sym-5")}>
       <div className="flex flex-col gap-space-3">
       <div className="w-12 h-12 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center group-hover:scale-105 transition-transform">
       <span className="material-symbols-outlined text-[24px]">bedtime</span>
@@ -380,7 +396,7 @@ function AreeDiInterventoPage() {
       <div className="flex flex-col gap-space-4" id="faq-accordion">
       {/* FAQ 1 */}
       <div className="rounded-xl bg-surface-container shadow-sm overflow-hidden transition-all">
-      <button aria-controls="faq-1" aria-expanded="false" className="w-full p-space-6 flex items-center justify-between text-left gap-space-4 cursor-pointer hover:bg-surface-container-high transition-colors" onclick="toggleFaq('faq-1')" type="button">
+      <button aria-controls="faq-1" aria-expanded={false} className="w-full p-space-6 flex items-center justify-between text-left gap-space-4 cursor-pointer hover:bg-surface-container-high transition-colors" onClick={() => toggleFaq("faq-1")} type="button">
       <span className="font-headline-md text-headline-md text-on-surface">Quanto dura un percorso per l’ansia?</span>
       <span className="material-symbols-outlined text-[24px] text-primary shrink-0 transition-transform duration-200" id="icon-faq-1">expand_more</span>
       </button>
@@ -390,7 +406,7 @@ function AreeDiInterventoPage() {
       </div>
       {/* FAQ 2 */}
       <div className="rounded-xl bg-surface-container shadow-sm overflow-hidden transition-all">
-      <button aria-controls="faq-2" aria-expanded="false" className="w-full p-space-6 flex items-center justify-between text-left gap-space-4 cursor-pointer hover:bg-surface-container-high transition-colors" onclick="toggleFaq('faq-2')" type="button">
+      <button aria-controls="faq-2" aria-expanded={false} className="w-full p-space-6 flex items-center justify-between text-left gap-space-4 cursor-pointer hover:bg-surface-container-high transition-colors" onClick={() => toggleFaq("faq-2")} type="button">
       <span className="font-headline-md text-headline-md text-on-surface">Devo prendere farmaci?</span>
       <span className="material-symbols-outlined text-[24px] text-primary shrink-0 transition-transform duration-200" id="icon-faq-2">expand_more</span>
       </button>
@@ -400,7 +416,7 @@ function AreeDiInterventoPage() {
       </div>
       {/* FAQ 3 */}
       <div className="rounded-xl bg-surface-container shadow-sm overflow-hidden transition-all">
-      <button aria-controls="faq-3" aria-expanded="false" className="w-full p-space-6 flex items-center justify-between text-left gap-space-4 cursor-pointer hover:bg-surface-container-high transition-colors" onclick="toggleFaq('faq-3')" type="button">
+      <button aria-controls="faq-3" aria-expanded={false} className="w-full p-space-6 flex items-center justify-between text-left gap-space-4 cursor-pointer hover:bg-surface-container-high transition-colors" onClick={() => toggleFaq("faq-3")} type="button">
       <span className="font-headline-md text-headline-md text-on-surface">E se ho un attacco di panico durante la seduta?</span>
       <span className="material-symbols-outlined text-[24px] text-primary shrink-0 transition-transform duration-200" id="icon-faq-3">expand_more</span>
       </button>

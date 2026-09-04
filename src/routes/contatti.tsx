@@ -178,21 +178,25 @@ function ContattiPage() {
                     Ogni percorso inizia con uno spazio di conoscenza reciproca. Compila i campi indicati per condividere la tua richiesta con serenità.
                   </p>
       {/* Interactive Form */}
-      <form className="space-y-space-6" id="contactForm" onsubmit="event.preventDefault(); document.getElementById('feedbackMessage').classList.remove('hidden'); this.reset();">
+      <form className="space-y-space-6" id="contactForm" onSubmit={(event) => {
+        event.preventDefault();
+        document.getElementById("feedbackMessage")?.classList.remove("hidden");
+        (event.currentTarget as HTMLFormElement).reset();
+      }}>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-space-4">
       {/* Nome e Cognome */}
       <div className="flex flex-col gap-space-1">
       <label className="font-label-md text-label-md text-on-surface" htmlFor="fullName">
                           Nome e cognome <span className="text-primary">*</span>
       </label>
-      <input className="w-full px-space-4 py-space-3 rounded-lg bg-surface text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary/40 shadow-inner placeholder:text-outline transition-all" id="fullName" name="fullName" placeholder="Es. Laura Rossi" required="" type="text" />
+      <input className="w-full px-space-4 py-space-3 rounded-lg bg-surface text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary/40 shadow-inner placeholder:text-outline transition-all" id="fullName" name="fullName" placeholder="Es. Laura Rossi" required type="text" />
       </div>
       {/* Email */}
       <div className="flex flex-col gap-space-1">
       <label className="font-label-md text-label-md text-on-surface" htmlFor="emailAddr">
                           Email <span className="text-primary">*</span>
       </label>
-      <input className="w-full px-space-4 py-space-3 rounded-lg bg-surface text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary/40 shadow-inner placeholder:text-outline transition-all" id="emailAddr" name="emailAddr" placeholder="nome@dominio.it" required="" type="email" />
+      <input className="w-full px-space-4 py-space-3 rounded-lg bg-surface text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary/40 shadow-inner placeholder:text-outline transition-all" id="emailAddr" name="emailAddr" placeholder="nome@dominio.it" required type="email" />
       </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-space-4">
@@ -210,7 +214,7 @@ function ContattiPage() {
                           Motivo del contatto <span className="text-primary">*</span>
       </label>
       <div className="relative">
-      <select className="w-full px-space-4 py-space-3 rounded-lg bg-surface text-on-surface font-body-md text-body-md appearance-none focus:outline-none focus:ring-2 focus:ring-primary/40 shadow-inner transition-all pr-10 cursor-pointer" id="subject" name="subject" required="">
+      <select className="w-full px-space-4 py-space-3 rounded-lg bg-surface text-on-surface font-body-md text-body-md appearance-none focus:outline-none focus:ring-2 focus:ring-primary/40 shadow-inner transition-all pr-10 cursor-pointer" id="subject" name="subject" required>
       <option disabled="" selected="" value="">Seleziona un'opzione</option>
       <option value="prima-visita">Prima visita conoscitiva</option>
       <option value="terapia-online">Terapia online</option>
@@ -228,11 +232,11 @@ function ContattiPage() {
       <span className="">Messaggio <span className="text-primary">*</span></span>
       <span className="text-outline font-label-sm text-label-sm font-normal">Massima discrezione</span>
       </label>
-      <textarea className="w-full px-space-4 py-space-3 rounded-lg bg-surface text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary/40 shadow-inner placeholder:text-outline transition-all resize-y" id="messageText" name="messageText" placeholder="Descrivi brevemente la tua richiesta o le disponibilità di orario per un incontro..." required="" rows="5"></textarea>
+      <textarea className="w-full px-space-4 py-space-3 rounded-lg bg-surface text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-primary/40 shadow-inner placeholder:text-outline transition-all resize-y" id="messageText" name="messageText" placeholder="Descrivi brevemente la tua richiesta o le disponibilità di orario per un incontro..." required rows={5}></textarea>
       </div>
       {/* Checkbox GDPR & Deontologia */}
       <div className="flex items-start gap-space-3 pt-space-2">
-      <input className="mt-1 w-4 h-4 rounded text-primary focus:ring-primary/30 accent-primary cursor-pointer shrink-0" id="privacyConsent" name="privacyConsent" required="" type="checkbox" />
+      <input className="mt-1 w-4 h-4 rounded text-primary focus:ring-primary/30 accent-primary cursor-pointer shrink-0" id="privacyConsent" name="privacyConsent" required type="checkbox" />
       <label className="font-label-sm text-label-sm text-on-surface-variant leading-normal cursor-pointer select-none" htmlFor="privacyConsent">
                         Acconsento al trattamento dei dati personali ai sensi del Regolamento UE 2016/679 (GDPR). Sono consapevole che le informazioni saranno trattate con la massima riservatezza secondo il Codice Deontologico degli Psicologi Italiani.
                       </label>
