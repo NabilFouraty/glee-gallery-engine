@@ -6,9 +6,9 @@ export const Route = createFileRoute("/contatti")({
   head: () => ({
     meta: [
       { title: "Contatti e studio a Milano | Dott.ssa Silvia Cauzzi" },
-      { name: "description", content: "Studio in Via Illirico 18, Milano. Telefono, email e modulo per richiedere un primo colloquio conoscitivo." },
+      { name: "description", content: "Studio in Indirizzo provvisorio. Telefono, email e modulo per richiedere un primo colloquio conoscitivo." },
       { property: "og:title", content: "Contatti e studio a Milano | Dott.ssa Silvia Cauzzi" },
-      { property: "og:description", content: "Studio in Via Illirico 18, Milano. Telefono, email e modulo per richiedere un primo colloquio conoscitivo." },
+      { property: "og:description", content: "Studio in Indirizzo provvisorio. Telefono, email e modulo per richiedere un primo colloquio conoscitivo." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -66,7 +66,7 @@ function ContattiPage() {
       <span className="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Sede Principale</span>
       <h2 className="font-headline-md text-headline-md text-on-surface font-normal mt-0.5">Studio di Psicoterapia</h2>
       <p className="font-body-md text-body-md text-on-surface-variant mt-space-1">
-                        Via Illirico 18, 20133 Milano (MI)<br />
+                        Indirizzo provvisorio<br />
       <span className="text-outline font-label-sm text-label-sm">Città Studi • Zona Lambrate / Argonne</span>
       </p>
       </div>
@@ -84,22 +84,22 @@ function ContattiPage() {
       <span className="material-symbols-outlined text-[20px] text-tertiary shrink-0 mt-1">call</span>
       <div className="flex flex-col text-on-surface">
       <span className="font-label-sm text-label-sm text-on-surface-variant">Recapito Telefonico Studio</span>
-      <a className="font-body-md text-body-md text-on-surface hover:text-primary transition-colors font-medium" href="tel:+390239834097">+39 02 39834097</a>
+      <a className="font-body-md text-body-md text-on-surface hover:text-primary transition-colors font-medium" href="#">Telefono provvisorio</a>
       </div>
       </div>
       <div className="flex items-start gap-space-3">
       <span className="material-symbols-outlined text-[20px] text-tertiary shrink-0 mt-1">smartphone</span>
       <div className="flex flex-col text-on-surface">
       <span className="font-label-sm text-label-sm text-on-surface-variant">Cellulare dedicato appuntamenti</span>
-      <a className="font-body-md text-body-md text-on-surface hover:text-primary transition-colors font-medium" href="tel:+393458564612">+39 345 8564612</a>
+      <a className="font-body-md text-body-md text-on-surface hover:text-primary transition-colors font-medium" href="#">Cellulare provvisorio</a>
       </div>
       </div>
       <div className="flex items-start gap-space-3">
       <span className="material-symbols-outlined text-[20px] text-tertiary shrink-0 mt-1">mail</span>
       <div className="flex flex-col text-on-surface min-w-0">
       <span className="font-label-sm text-label-sm text-on-surface-variant">Email • Posta Certificata</span>
-      <a className="font-body-md text-body-md text-on-surface hover:text-primary transition-colors truncate" href="mailto:studio@silviacauzzi.it">studio@silviacauzzi.it</a>
-      <a className="font-label-sm text-label-sm text-outline hover:text-primary transition-colors truncate" href="mailto:silvia.cauzzi@pec.it">PEC: silvia.cauzzi@pec.it</a>
+      <a className="font-body-md text-body-md text-on-surface hover:text-primary transition-colors truncate" href="#">email provvisoria</a>
+      <a className="font-label-sm text-label-sm text-outline hover:text-primary transition-colors truncate" href="#">PEC provvisoria</a>
       </div>
       </div>
       </div>
@@ -126,14 +126,14 @@ function ContattiPage() {
       </ul>
       {/* Stylized Google Map Container */}
       <div className="mt-space-2 flex flex-col gap-space-2">
-      <div className="w-full h-56 bg-cover bg-center rounded-lg shadow-inner relative overflow-hidden group" data-location="Via Illirico 18, 20133 Milano">
+      <div className="w-full h-56 bg-cover bg-center rounded-lg shadow-inner relative overflow-hidden group" data-location="Indirizzo provvisorio">
       <div className="absolute inset-0 bg-primary/10 mix-blend-multiply transition-opacity group-hover:opacity-0"></div>
       <div className="absolute bottom-3 left-3 bg-surface/95 px-space-3 py-space-1 rounded-full shadow-md text-on-surface flex items-center gap-space-2">
       <span className="material-symbols-outlined text-[16px] text-primary">pin_drop</span>
-      <span className="font-label-sm text-label-sm">Via Illirico 18, Milano</span>
+      <span className="font-label-sm text-label-sm">Indirizzo provvisorio</span>
       </div>
       </div>
-      <a className="inline-flex items-center gap-space-1 text-primary hover:text-primary-container font-label-sm text-label-sm font-medium self-end" href="https://maps.google.com/?q=Via+Illirico+18+20133+Milano" rel="noopener noreferrer" target="_blank">
+      <a className="inline-flex items-center gap-space-1 text-primary hover:text-primary-container font-label-sm text-label-sm font-medium self-end" href="#" rel="noopener noreferrer" target="_blank">
       <span className="">Apri in Google Maps</span>
       <span className="material-symbols-outlined text-[14px]">open_in_new</span>
       </a>

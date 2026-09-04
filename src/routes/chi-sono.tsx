@@ -61,7 +61,7 @@ function ChiSonoPage() {
                 </p>
       <div className="mt-space-3 flex items-center gap-space-2">
       <span className="w-6 h-[1.5px] bg-primary"></span>
-      <span className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Milano • Studio Via Illirico</span>
+      <span className="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Milano • Studio • indirizzo provvisorio</span>
       </div>
       </div>
       </div>
@@ -360,7 +360,7 @@ function ChiSonoPage() {
       <span className="material-symbols-outlined text-[20px]">calendar_today</span>
       <span className="">Prenota un primo colloquio</span>
       </Link>
-      <a className="w-full sm:w-auto inline-flex items-center justify-center gap-space-2 px-space-6 py-space-3 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors duration-200" href="mailto:studio@silviacauzzi.it">
+      <a className="w-full sm:w-auto inline-flex items-center justify-center gap-space-2 px-space-6 py-space-3 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors duration-200" href="#">
       <span className="material-symbols-outlined text-[20px]">mail</span>
       <span className="">Scrivi per informazioni</span>
       </a>

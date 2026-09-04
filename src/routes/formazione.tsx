@@ -539,9 +539,9 @@ function FormazionePage() {
       <span className="material-symbols-outlined text-[20px] text-primary">mail</span>
       <span className="">Contatta per una proposta</span>
       </a>
-      <a className="w-full sm:w-auto inline-flex items-center justify-center gap-space-2 px-space-6 py-space-3 rounded-full bg-primary-container hover:bg-primary-container/80 text-on-primary font-label-md text-label-md transition-all text-center" href="tel:+390239834097">
+      <a className="w-full sm:w-auto inline-flex items-center justify-center gap-space-2 px-space-6 py-space-3 rounded-full bg-primary-container hover:bg-primary-container/80 text-on-primary font-label-md text-label-md transition-all text-center" href="#">
       <span className="material-symbols-outlined text-[18px]">call</span>
-      <span className="">+39 02 39834097</span>
+      <span className="">Telefono provvisorio</span>
       </a>
       </div>
       </div>

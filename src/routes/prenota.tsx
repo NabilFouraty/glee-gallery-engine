@@ -131,7 +131,7 @@ function PrenotaPage() {
       <img className="w-20 h-20 rounded-lg object-cover shrink-0" alt="Quiet and serene psychotherapy practice room in Milan with warm clay tones, a comfortable armchair, soft linen textures, and a discreet leafy plant in soft morning sunlight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAI7MNWfG6Ng9jRQBeSGPY69vjnddCb9PDv-9oxVifhgJTO5ameF52Gq7gI82KhdJS0E5E5-gS5McMFDiOvIcRt4inP3J29xTpFhknIxpf1Q7DcCUs_JKDq-Xv4v3ysPIoS77MmSgT_EX_ZZzkWRTBVz93_Urb-StpZ_S_ztxJFLXJTk5yeP7cnNkdvAiq8sZivCD3s4JiNv1M2ONiN8dWXlQU7WCVJWf_b5XXbxSVUEJwBKjRyKSFm" />
       <div className="flex flex-col">
       <span className="font-label-sm text-label-sm text-tertiary uppercase tracking-wider">Studio Clinico Milano</span>
-      <span className="font-headline-md text-headline-md text-on-surface text-base">Via Illirico 18</span>
+      <span className="font-headline-md text-headline-md text-on-surface text-base">Indirizzo provvisorio</span>
       <span className="font-body-md text-body-md text-on-surface-variant text-sm">MM2 Piola / Lambrate</span>
       </div>
       </div>
@@ -169,7 +169,7 @@ function PrenotaPage() {
       <span className="px-space-2 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">50 min</span>
       </div>
       <h3 className="font-headline-md text-headline-md text-on-surface mb-space-2">Psicoterapia individuale in studio</h3>
-      <p className="font-body-md text-body-md text-on-surface-variant text-sm flex-1">Presso lo studio di Milano (Via Illirico 18, MM2 Piola/Lambrate), in un setting intimo e riparato.</p>
+      <p className="font-body-md text-body-md text-on-surface-variant text-sm flex-1">Presso lo studio di Milano (Indirizzo provvisorio, MM2 Piola/Lambrate), in un setting intimo e riparato.</p>
       <div className="mt-space-4 pt-space-3 flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
       <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-primary"></span>Presenza fisica</span>
       <span className="service-indicator font-bold text-primary opacity-0">• Selezionato</span>
@@ -497,8 +497,8 @@ function PrenotaPage() {
                   Per urgenze, necessità particolari di orario o chiarimenti prima della prenotazione:
                 </p>
       <div className="flex flex-col gap-1 font-label-md text-label-md text-primary">
-      <a className="hover:underline flex items-center gap-1" href="tel:+390239834097"><span className="material-symbols-outlined text-[16px]">call</span>+39 02 39834097</a>
-      <a className="hover:underline flex items-center gap-1" href="tel:+393458564612"><span className="material-symbols-outlined text-[16px]">phone_android</span>+39 345 8564612</a>
+      <a className="hover:underline flex items-center gap-1" href="#"><span className="material-symbols-outlined text-[16px]">call</span>Telefono provvisorio</a>
+      <a className="hover:underline flex items-center gap-1" href="#"><span className="material-symbols-outlined text-[16px]">phone_android</span>Cellulare provvisorio</a>
       </div>
       </div>
       </div>
@@ -514,9 +514,9 @@ function PrenotaPage() {
       <p className="font-body-md text-body-md text-on-surface-variant text-sm">Puoi anche scrivermi direttamente una breve email con la tua situazione.</p>
       </div>
       </div>
-      <a className="px-space-6 py-space-3 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors shrink-0 flex items-center gap-space-2" href="mailto:studio@silviacauzzi.it">
+      <a className="px-space-6 py-space-3 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md transition-colors shrink-0 flex items-center gap-space-2" href="#">
       <span className="material-symbols-outlined text-[18px] text-tertiary">mail</span>
-      <span className="">Scrivi a studio@silviacauzzi.it</span>
+      <span className="">Scrivi (email provvisoria)</span>
       </a>
       </div>
       </div>

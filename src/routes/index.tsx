@@ -246,7 +246,7 @@ function IndexPage() {
       </div>
       <h3 className="font-headline-md text-headline-md text-on-surface">Dove</h3>
       <p className="font-body-md text-body-md text-on-surface-variant">
-                  Via Illirico 18, 20133 Milano<br />
+                  Indirizzo provvisorio<br />
       <span className="font-label-sm text-label-sm text-outline">(MM2 Piola / Lambrate)</span>
       </p>
       </div>
@@ -383,7 +383,7 @@ function IndexPage() {
       </a>
       </div>
       <p className="font-label-sm text-label-sm text-outline mt-space-2">
-                  Studio in Via Illirico 18 a Milano e sedute individuali online
+                  Studio in Indirizzo provvisorio a Milano e sedute individuali online
                 </p>
       </div>
       </div>
