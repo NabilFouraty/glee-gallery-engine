@@ -10,33 +10,102 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AreeDiInterventoRouteImport } from './routes/aree-di-intervento'
+import { Route as ContattiRouteImport } from './routes/contatti'
+import { Route as FormazioneRouteImport } from './routes/formazione'
+import { Route as PrenotaRouteImport } from './routes/prenota'
+import { Route as TerapiaOnlineRouteImport } from './routes/terapia-online'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AreeDiInterventoRoute = AreeDiInterventoRouteImport.update({
+  id: '/aree-di-intervento',
+  path: '/aree-di-intervento',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContattiRoute = ContattiRouteImport.update({
+  id: '/contatti',
+  path: '/contatti',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FormazioneRoute = FormazioneRouteImport.update({
+  id: '/formazione',
+  path: '/formazione',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrenotaRoute = PrenotaRouteImport.update({
+  id: '/prenota',
+  path: '/prenota',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TerapiaOnlineRoute = TerapiaOnlineRouteImport.update({
+  id: '/terapia-online',
+  path: '/terapia-online',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/aree-di-intervento': typeof AreeDiInterventoRoute
+  '/contatti': typeof ContattiRoute
+  '/formazione': typeof FormazioneRoute
+  '/prenota': typeof PrenotaRoute
+  '/terapia-online': typeof TerapiaOnlineRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/aree-di-intervento': typeof AreeDiInterventoRoute
+  '/contatti': typeof ContattiRoute
+  '/formazione': typeof FormazioneRoute
+  '/prenota': typeof PrenotaRoute
+  '/terapia-online': typeof TerapiaOnlineRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/aree-di-intervento': typeof AreeDiInterventoRoute
+  '/contatti': typeof ContattiRoute
+  '/formazione': typeof FormazioneRoute
+  '/prenota': typeof PrenotaRoute
+  '/terapia-online': typeof TerapiaOnlineRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/aree-di-intervento'
+    | '/contatti'
+    | '/formazione'
+    | '/prenota'
+    | '/terapia-online'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/aree-di-intervento'
+    | '/contatti'
+    | '/formazione'
+    | '/prenota'
+    | '/terapia-online'
+  id:
+    | '__root__'
+    | '/'
+    | '/aree-di-intervento'
+    | '/contatti'
+    | '/formazione'
+    | '/prenota'
+    | '/terapia-online'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AreeDiInterventoRoute: typeof AreeDiInterventoRoute
+  ContattiRoute: typeof ContattiRoute
+  FormazioneRoute: typeof FormazioneRoute
+  PrenotaRoute: typeof PrenotaRoute
+  TerapiaOnlineRoute: typeof TerapiaOnlineRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +117,51 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/aree-di-intervento': {
+      id: '/aree-di-intervento'
+      path: '/aree-di-intervento'
+      fullPath: '/aree-di-intervento'
+      preLoaderRoute: typeof AreeDiInterventoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contatti': {
+      id: '/contatti'
+      path: '/contatti'
+      fullPath: '/contatti'
+      preLoaderRoute: typeof ContattiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/formazione': {
+      id: '/formazione'
+      path: '/formazione'
+      fullPath: '/formazione'
+      preLoaderRoute: typeof FormazioneRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/prenota': {
+      id: '/prenota'
+      path: '/prenota'
+      fullPath: '/prenota'
+      preLoaderRoute: typeof PrenotaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terapia-online': {
+      id: '/terapia-online'
+      path: '/terapia-online'
+      fullPath: '/terapia-online'
+      preLoaderRoute: typeof TerapiaOnlineRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AreeDiInterventoRoute: AreeDiInterventoRoute,
+  ContattiRoute: ContattiRoute,
+  FormazioneRoute: FormazioneRoute,
+  PrenotaRoute: PrenotaRoute,
+  TerapiaOnlineRoute: TerapiaOnlineRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
