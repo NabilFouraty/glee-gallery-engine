@@ -1,0 +1,10 @@
+# Netlify deployment configuration
+# Netlify runs: npm run build — NITRO_PRESET pins the server build to Netlify Functions.
+
+[build]
+  command = "npm run build"
+  publish = "dist/client"
+
+[build.environment]
+  NODE_VERSION = "22"
+  NITRO_PRESET = "netlify"
