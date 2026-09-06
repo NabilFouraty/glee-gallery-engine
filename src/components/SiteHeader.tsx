@@ -62,6 +62,7 @@ export default function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
+    <>
     <header className="fixed top-0 left-0 w-full z-50 bg-surface/85 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)] transition-all duration-300">
       <div className="h-20 max-w-[72rem] mx-auto px-gutter-mobile lg:px-gutter-desktop flex items-center justify-between gap-space-4">
         <div className="flex items-center gap-space-3 shrink-0">
