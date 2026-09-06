@@ -234,6 +234,7 @@ export default function SiteHeader() {
           </div>
         </div>
       </div>
-    </header>
+    </div>
+    </>
   );
 }
