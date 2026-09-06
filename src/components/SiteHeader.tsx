@@ -234,7 +234,6 @@ export default function SiteHeader() {
           </div>
         </div>
       </div>
-    </div>
     </>
   );
 }
