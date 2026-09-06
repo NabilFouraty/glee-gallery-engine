@@ -107,7 +107,15 @@ export default function SiteHeader() {
         </div>
       </div>
 
-      {/* Mobile / tablet drawer */}
+    </header>
+
+    {/* Mobile / tablet drawer */}
+    <div
+      className={`lg:hidden fixed inset-0 z-[60] transition-opacity duration-300 ${
+        menuOpen ? "opacity-100" : "pointer-events-none opacity-0"
+      }`}
+    >
+      {/* Mobile / tablet drawer inner */}
       <div
         className={`lg:hidden fixed inset-0 z-40 transition-opacity duration-300 ${
           menuOpen ? "opacity-100" : "pointer-events-none opacity-0"
